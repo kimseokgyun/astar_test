@@ -38,6 +38,8 @@ public:
     QLineEdit *end_th;
     QPushButton *start_set;
     QPushButton *end_set;
+    QPushButton *bt_next;
+    QPushButton *bx_end;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -87,6 +89,12 @@ public:
         end_set = new QPushButton(centralwidget);
         end_set->setObjectName(QString::fromUtf8("end_set"));
         end_set->setGeometry(QRect(370, 180, 89, 25));
+        bt_next = new QPushButton(centralwidget);
+        bt_next->setObjectName(QString::fromUtf8("bt_next"));
+        bt_next->setGeometry(QRect(610, 150, 111, 41));
+        bx_end = new QPushButton(centralwidget);
+        bx_end->setObjectName(QString::fromUtf8("bx_end"));
+        bx_end->setGeometry(QRect(610, 220, 111, 41));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -111,6 +119,8 @@ public:
         label_8->setText(QCoreApplication::translate("MainWindow", "end (x,y,theta)", nullptr));
         start_set->setText(QCoreApplication::translate("MainWindow", "SET", nullptr));
         end_set->setText(QCoreApplication::translate("MainWindow", "SET", nullptr));
+        bt_next->setText(QCoreApplication::translate("MainWindow", "NEXT ", nullptr));
+        bx_end->setText(QCoreApplication::translate("MainWindow", "GO END", nullptr));
     } // retranslateUi
 
 };

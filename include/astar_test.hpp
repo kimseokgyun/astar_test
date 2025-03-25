@@ -7,6 +7,8 @@
 #include <cmath>
 #include <random>
 #include <fstream>
+#include <cfloat> 
+
 // tree typedef
 
 
@@ -27,10 +29,26 @@ namespace astar_test
             explicit astar_test (const rclcpp::NodeOptions & options);
             ~astar_test();
 
+            struct astar_node{
+
+
+                Eigen::Matrix4d pose;
+                double fn;
+                double gn;
+                double hn;
+
+            };
+
 
             void view_loop();
             void astar_loop();
-            //for thread 
+            void step_astar();
+            //for step astar
+            std::vector<astar_node> DEBUG_NODE;
+            std::vector<float> debug_potarr;
+            std::vector<bool> debug_visted;
+            std::vector<int> debug_came_from;
+
 
             // for viewing ..
             std::atomic<bool> view_run = false;
@@ -39,6 +57,8 @@ namespace astar_test
             // for astar ..
             std::atomic<bool> astar_run = false;
             std::atomic<bool> astar_step_flag = false;
+            std::atomic<bool> used_step = false;
+            //std::atomic<int> step_cycle = 0;
             std::thread *astar_thread = NULL;
             Eigen::Matrix4d start;
             Eigen::Matrix4d end;

@@ -44,6 +44,9 @@ private slots:
 
     void on_end_set_clicked();
 
+    void on_bt_next_clicked();
+    void on_bx_end_clicked();
+
 private:
     Ui::MainWindow *ui;
     QTimer timer;
